@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { ensureAudioUnlocked } from "@/lib/sfx";
 
 export default function GameClient() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -46,7 +47,10 @@ export default function GameClient() {
   }, [router]);
 
   return (
-    <div className="relative flex-1 w-full overflow-hidden touch-none select-none">
+    <div
+      className="relative flex-1 w-full overflow-hidden touch-none select-none"
+      onPointerDown={ensureAudioUnlocked}
+    >
       <div ref={containerRef} className="absolute inset-0" />
       <div className="absolute top-4 left-0 right-0 flex justify-center pointer-events-none">
         <div className="rounded-full bg-black/40 backdrop-blur px-5 py-2 text-white font-bold text-lg tracking-wider">
