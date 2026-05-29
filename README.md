@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SkyJump Rewards
 
-## Getting Started
+A mobile-first web game where you tap-jump up through the sky on procedurally generated platforms. Better scores unlock better brand discount coupons. Players win, brands win, we win.
 
-First, run the development server:
+## Tech stack
+- Next.js 14 (App Router) + TypeScript
+- TailwindCSS
+- Phaser 3 (game engine, lazy-loaded on `/play`)
+- Vercel Postgres + Prisma (M5)
+- Hosted on Vercel
 
+## Local dev
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+App runs at http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Routes
+- `/` — landing
+- `/play` — game (Phaser canvas, M2)
+- `/result?score=N` — score + tier + coupon reveal (M4)
+- `/admin` — coupon/tier admin (M6)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Milestones
+1. Scaffold + first Vercel deploy *(current)*
+2. Core tap-to-jump mechanics
+3. Parallax sky progression + art/sound
+4. Score, tiers, scratch-card reveal
+5. Backend + affiliate coupon engine
+6. Admin panel
+7. Share, retry-on-ad, leaderboard
+8. Analytics, PWA, legal, launch
